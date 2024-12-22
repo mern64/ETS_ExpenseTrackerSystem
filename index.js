@@ -1,8 +1,9 @@
-import { registerRootComponent } from 'expo';
+import { registerRootComponent } from 'expo';  // Importing registerRootComponent from Expo
+import App from './App';  // Import the main App component
 
-import App from './App';
+// If you have a Navigation setup component, you can register it here instead
+// Just use Navigation component if your app is structured this way
+import Navigation from './Navigation';  // If you used a separate navigation file
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+// Register the main component (Navigation) that manages your screens
+registerRootComponent(Navigation);
