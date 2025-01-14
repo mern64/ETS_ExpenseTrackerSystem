@@ -8,6 +8,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';  // Firebas
 import { collection, addDoc } from 'firebase/firestore';  // Firestore
 import { Picker } from '@react-native-picker/picker';  // Picker component
 
+
 export default function HomeScreen() {
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
@@ -75,7 +76,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Expense Tracker</Text>
-      
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Description:</Text>
         <Picker
@@ -114,16 +115,16 @@ export default function HomeScreen() {
       {loading ? (
         <ActivityIndicator size="large" color="#FF6347" style={styles.loader} />
       ) : (
-        <TouchableOpacity onPress={saveExpense} style={styles.button}>
-          <Text style={styles.buttonText}>Save Expense</Text>
+        <TouchableOpacity onPress={saveExpense} style={styles.saveButton}>
+          <Text style={styles.saveButtonText}>Save Expense</Text>
         </TouchableOpacity>
       )}
 
       <TouchableOpacity
         onPress={() => navigation.navigate('Expense List')}  // Navigate to the expense list page
-        style={styles.button}
+        style={styles.viewButton}
       >
-        <Text style={styles.buttonText}>View Expenses</Text>
+        <Text style={styles.viewButtonText}>View Expenses</Text>
       </TouchableOpacity>
     </View>
   );
@@ -132,14 +133,14 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',  // Align content to the top
+    justifyContent: 'center',  // Align content to the top
     alignItems: 'center',  // Horizontally center content
     padding: 20,
-    backgroundColor: '#f7f7f7',
+    backgroundColor: '#f1f7ed',
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: '#333',
     textAlign: 'center',
     marginBottom: 30,  // Increased margin for more spacing from the top
@@ -152,21 +153,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#333',
     marginBottom: 5,
+    fontWeight: '600',
   },
   picker: {
     height: 50,
     width: '100%',
     borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 30,
     backgroundColor: '#fff',
     fontSize: 16,
   },
   input: {
-    borderColor: '#ccc',
+    borderColor: '#ddd',
     borderWidth: 1,
     padding: 12,
-    borderRadius: 10,
+    borderRadius: 12,
     backgroundColor: '#fff',
     fontSize: 16,
     color: '#333',
@@ -183,17 +185,42 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   button: {
-    backgroundColor: '#FF6347',
-    paddingVertical: 15,
+    backgroundColor: '#4CAF50',
+    paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 10,
-    marginTop: 20,
     alignItems: 'center',
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
+  },
+  saveButton: {
+    backgroundColor: '#FF6347',
+    paddingVertical: 15,
+    paddingHorizontal: 50,
+    borderRadius: 12,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  saveButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '700',
+  },
+  viewButton: {
+    backgroundColor: '#008CBA',
+    paddingVertical: 15,
+    paddingHorizontal: 50,
+    borderRadius: 12,
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  viewButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '700',
   },
   loader: {
     marginTop: 30,
