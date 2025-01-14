@@ -75,6 +75,8 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+
+      <Image source={require('./assets/3d-wallet.png')} style={styles.icon} />
       <Text style={styles.title}>Expense Tracker</Text>
 
       <View style={styles.inputContainer}>
@@ -144,6 +146,12 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
     marginBottom: 30,  // Increased margin for more spacing from the top
+  },
+  icon: {
+    width: 100,
+    height: 100,
+    alignSelf: 'center', // Center the icon
+    marginBottom: 10, // Space between the icon and title
   },
   inputContainer: {
     marginBottom: 20,

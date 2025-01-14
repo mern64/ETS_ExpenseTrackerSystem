@@ -27,6 +27,8 @@ export default function ExpenseListScreen() {
 
   return (
     <View style={styles.container}>
+            <Image source={require('./assets/expenses.png')} style={styles.icon} />
+      
       <Text style={styles.title}>Expenses</Text>
       <FlatList
         data={expenses}
@@ -54,7 +56,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#f1f7ed',
+  },
+  icon: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center', // Center the icon
+    marginBottom: 10, // Space between the icon and title
   },
   title: {
     fontSize: 28,
@@ -88,7 +96,7 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontSize: 14,
-    color: '#888',
+    color: '#E60026',
   },
   receiptImage: {
     width: 60,

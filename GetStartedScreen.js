@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function GetStartedScreen() {
@@ -7,20 +7,20 @@ export default function GetStartedScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Image on top */}
-      <Image
-        source={require('./assets/ExpenseSave.png')}  // Your image file path
-        style={styles.image}
-      />
+  
+
+      <Image source={require('./assets/ExpenseSave.png')} style={styles.image} />
 
       <Text style={styles.title}>Welcome to Expense Tracker</Text>
-      <Text style={styles.subtitle}>Track your daily expenses with ease</Text>
+      <Text style={styles.subtitle}>
+        Keep track of your expenses and manage your budget with ease.
+      </Text>
 
       <TouchableOpacity
-        style={styles.button}
+        style={styles.getStartedButton}
         onPress={() => navigation.navigate('Expense Tracker')}
       >
-        <Text style={styles.buttonText}>Get Started</Text>
+        <Text style={styles.getStartedButtonText}>Get Started</Text>
       </TouchableOpacity>
     </View>
   );
@@ -29,51 +29,39 @@ export default function GetStartedScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#f1f7ed',  // Optional background color
+    justifyContent: 'space-between',
+    backgroundColor: '#022b3a',
+    paddingHorizontal: 20,
+    paddingTop: 50,  // To leave space for the status bar
   },
   image: {
-    width: 300,  // Adjust the size as needed
-    height: 300, // Adjust the size as needed
-    marginBottom: 20,  // Space between image and title
-
-    
+    width: '100%',
+    height: 300, // Adjust this based on the aspect ratio of your image
+    resizeMode: 'contain',
+    alignSelf: 'center',
   },
   title: {
-    fontSize: 36,
+    fontSize: 50,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#fff',
     textAlign: 'center',
-    marginBottom: 20,
+    marginVertical: 5,
   },
   subtitle: {
-    fontSize: 18,
-    color: '#555',
+    fontSize: 16,
+    color: '#bbb',
     textAlign: 'center',
-    marginBottom: 40,
+    marginBottom: 10,
   },
-  button: {
-    backgroundColor: '#7ca982',
+  getStartedButton: {
+    backgroundColor: '#32CD32',
     paddingVertical: 15,
-    paddingHorizontal: 100,
-    borderRadius: 30,  // Make the button rounder by increasing the borderRadius
+    borderRadius: 30,
     alignItems: 'center',
-
-    // Shadow for iOS
-    shadowColor: '#000',  // Shadow color
-    shadowOffset: { width: 0, height: 4 },  // Shadow offset
-    shadowOpacity: 0.3,  // Shadow opacity
-    shadowRadius: 5,  // Shadow blur radius
-
-    // Shadow for Android (elevation)
-    elevation: 5,  // Controls shadow on Android
-
-    
+    marginBottom: 40,  // To give some space at the bottom of the screen
   },
-  buttonText: {
-    color: '#black',
+  getStartedButtonText: {
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
